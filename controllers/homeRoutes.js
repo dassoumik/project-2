@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Project, User } = require("../models");
+const { Project, User, Owner } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -27,6 +27,24 @@ router.get("/profile", withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get("/search/:zip",  async (req, res) => {
+  console.log(req.params.zip);
+  const nearByUsers = await Owner.findAll({where: {zip: req.params.zip}}, {include: {model: 'user', as: 'owner'}});
+  const users = nearByUsers.map((user) => user.get({ plain: true }));
+  if (nearByUsers)
+  {
+    res.status(200).json(users);
+  }
+  // try {
+  //   res.render("homepage", {
+  //     user: users,
+  //     logged_in: req.session.logged_in,
+    // });
+  // } catch (err) {
+    // res.status(500).json(err);
+  // }
 });
 
 router.get("/login", (req, res) => {
