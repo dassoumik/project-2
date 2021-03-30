@@ -17,9 +17,10 @@ router.post('/',  async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const userData = await Owner.findByPk(req.params.id, {
-      include: [{ model: 'user', as: 'userOwner' }],
-      // include: [{ all: true, nested: true }],
+      // include: [{ model: 'user', as: 'userOwner' }],
+      include: [{ all: true, nested: true }],
     });
+    console.log(userData);
 
     if (!userData) {
       res
