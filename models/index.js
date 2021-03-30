@@ -1,7 +1,7 @@
 const User = require('./User');
 const Dog = require('./Dog');
 const Owner = require('./Owner');
-const Date = require('./Date');
+const PuppyDate = require('./PuppyDate');
 const OwnerDate = require('./OwnerDate');
 const OwnerDog = require('./OwnerDog');
 
@@ -35,7 +35,7 @@ Owner.belongsToMany(Dog, {
     constraints: false,
 });
 
-Owner.belongsToMany(Date, {
+Owner.belongsToMany(PuppyDate, {
     as: 'owner1Date',
     through: {
     model: OwnerDate,
@@ -46,7 +46,7 @@ Owner.belongsToMany(Date, {
   constraints: false,
 });
 
-Owner.belongsToMany(Date, {
+Owner.belongsToMany(PuppyDate, {
     as: 'owner2Date',
     through: {
     model: OwnerDate,
@@ -57,7 +57,7 @@ Owner.belongsToMany(Date, {
   constraints: false,
 });
 
-Date.belongsToMany(Owner, {
+PuppyDate.belongsToMany(Owner, {
     as: 'dating',
     through: {
         model: OwnerDate,
@@ -73,7 +73,7 @@ module.exports = {
     User,
     Dog,
     Owner,
-    Date,
+    PuppyDate,
     OwnerDate,
     OwnerDog
 };

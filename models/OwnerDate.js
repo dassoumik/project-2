@@ -34,7 +34,7 @@ OwnerDate.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'date',
+            model: 'puppydate',
             key: 'id',
         },
     },
