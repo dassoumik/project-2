@@ -25,9 +25,9 @@
                 <ul class="dropdown menu" data-dropdown-menu>
                     <li class="menu-text">What would you like to do?</li>
                     <!-- clickable HTML links for the other pages  -->
-                    <li><a href="#" class="link">Set up a Puppy Play Date</a></li>
-                    <li><a href="#" class="link">Browse todays play dates</a></li>
-                    <li><a href="#" class="link">View the next two days play dates</a></li>
+                    <li><a href="#" class="link"><a href="puppyplaydate.html" >Set up a Puppy Play Date</a></li>
+                    <li><a href="#" class="link"><a href="browseplaydates.html" >Browse todays play dates</a></li>
+                    <li><a href="#" class="link"><a href="nexttwodays.html" >View the next two days play dates</a></li>
                 </ul>
             </div>
             <!-- Login buttom to the right -->
@@ -42,29 +42,26 @@
     <br>
     <!-- This is the login form -->
     <div class="mb-3 row">
-        <!-- Field for user name -->
-        <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">User Name</label>
-            <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword">
         <!-- User field for email -->
-        <label for="staticEmail" class="col-sm-4 col-form-label">What e-mail would you like to use?</label>
+        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="Email" value="email@example.com">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
         </div>
       </div>
-      <br>
       <!-- user field for password -->
       <div class="mb-3 row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
+        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
         <div class="col-sm-10">
           <input type="password" class="form-control" id="inputPassword">
           <!-- this is the button to submit the login -->
-          <button type="button" class="btn btn-success"><a href="dogsignup.html">Done, lets add the dogs!</a></button>
+          <button type="button" class="btn btn-primary">Login</button>
           <!-- this is the button to clear the login screen -->
           <button type="button" class="btn btn-secondary">Clear</button>
           <!-- go back to homepage -->
           <button type="button" class="btn btn-light"> <a href="index.html">Return to homepage</a></button>
+          <!-- this will take the user to the set up account page -->
+          <p> Don't have an account? No worries, just<button type="button" class="btn btn-link"><a href="signup.html">sign up as a new user</a></button></p>
+          
         </div>
       </div>
       
