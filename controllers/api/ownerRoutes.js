@@ -17,8 +17,10 @@ router.post('/',  async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const userData = await Owner.findByPk(req.params.id, {
-    include: [{ all: true, nested: true }],
+      // include: [{ model: 'user', as: 'userOwner' }],
+      include: [{ all: true, nested: true }],
     });
+    console.log(userData);
 
     if (!userData) {
       res
@@ -26,11 +28,11 @@ router.get('/:id', async (req, res) => {
         .json({ message: 'Incorrect owner, please try again' });
       return;
     } else {
-        const ownerData = userData.map((owner) =>
-       owner.get({ plain: true }));
+      //   const ownerData = userData.map((owner) =>
+      //  owner.get({ plain: true }));
         res
           .render('owner', {
-              ...ownerData,
+              owner_data: userData.dataValues,
               logged_in: req.session.logged_in,
           });
     }
