@@ -66,4 +66,40 @@ console.log(dateData);
   }
 });
 
+router.get('/zip/:id', async (req, res) => {
+  try {
+    const dateData = await Date.findAll({where: {location: req.params.id }},
+     {
+  //    include: [{ model: 'owner', as: 'dateOwner' }],
+      include: [{ all: true, nested: true }],
+   });
+  //  const dateData2 = await Date.findAll({where: {participant2_id: req.params.id }},
+    // {
+ //    include: [{ model: 'owner', as: 'dateOwner' }],
+    //  include: [{ all: true, nested: true }],
+  // });
+console.log(dateData);
+    if (!dateData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect date, please try again' });
+      return;
+    } else {
+      //   const dateSimpleData = dateData.map((date) =>
+      //    date.get({ plain: true }));
+      //    console.log(dateSimpleData);
+        res
+          .render('datebyzip', {
+              // owner_data: dateData.dateOwner.dataValues,
+              date_data: dateData.datavalues,
+              // date_data2: dateData2.datavalues,
+              logged_in: req.session.logged_in,
+          });
+    }
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
