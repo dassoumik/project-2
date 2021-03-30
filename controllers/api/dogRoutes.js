@@ -48,8 +48,8 @@ router.get('/:id', async (req, res) => {
         //    console.log(dogSimpleData);
           res
             .render('dogpage', {
-                owner_data: dog.dogOwner.dataValues,
-                dog_data: dog.datavalues,
+                // owner_data: dogData.dogOwner.dataValues,
+                dog_data: dogData.datavalues,
                 logged_in: req.session.logged_in,
             });
       }
