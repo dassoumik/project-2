@@ -4,6 +4,12 @@ const Owner = require('./Owner');
 const Date = require('./Date');
 const OwnerDate = require('./OwnerDate');
 
+User.hasOne(Owner, {
+    foreignkey: 'user_id',
+    as: 'owner'
+})
+
+
 
 Owner.belongsTo(User, {
     foreignKey: 'user_id',
