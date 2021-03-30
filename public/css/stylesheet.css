@@ -26,11 +26,15 @@
     width: 600px;
 }
 
-.gmap_canvas {
+#gmap_canvas {
     overflow: hidden;
     background: none !important;
-    height: 500px;
-    width: 600px;
+    scroll-behavior: inherit;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border: 0px;
 }
 
 /* class for the images for nearby people */
