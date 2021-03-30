@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Link for our CSS sheet -->
     <link href="stylesheet.css">
-    
+
 </head>
 
 
@@ -28,9 +28,9 @@
                 <ul class="dropdown menu" data-dropdown-menu>
                     <li class="menu-text">What would you like to do?</li>
                     <!-- clickable HTML links for the other pages  -->
-                    <li><a href="#" class="link"><a href="puppyplaydate.html" >Set up a Puppy Play Date</a></li>
-                    <li><a href="#" class="link"><a href="browseplaydates.html" >Browse todays play dates</a></li>
-                    <li><a href="#" class="link"><a href="nexttwodays.html" >View the next two days play dates</a></li>
+                    <li><a href="#" class="link"><a href="puppyplaydate.html">Set up a Puppy Play Date</a></li>
+                    <li><a href="#" class="link"><a href="browseplaydates.html">Browse todays play dates</a></li>
+                    <li><a href="#" class="link"><a href="nexttwodays.html">View the next two days play dates</a></li>
                 </ul>
             </div>
             <!-- Login buttom to the right -->
@@ -46,10 +46,10 @@
     <!-- To add some white spacing -->
     <!-- Input for zip code -->
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Zip Code"
-            aria-label="Recipient's username with two button addons">
-        <button class="btn btn-outline-secondary" type="button">Submit</button>
-        <button class="btn btn-outline-secondary" type="button">Clear</button>
+        <input type="text" class="form-control inputZip" placeholder="Zip Code" id="userInput">
+        <button class="btn btn-outline-secondary" type="button" id="submitBtn">Submit</button>
+        <button onclick="document.getElementById('userInput').value = ''" class="btn btn-outline-secondary"
+            type="button" id="clearBtn">Clear</button>
     </div>
     <!-- User images, dog images, and container for map -->
     <div class="medium-2 columns">
@@ -63,9 +63,9 @@
         <div class="medium-10 columns">
             <div class="mapouter">
                 <div class="gmap_canvas">
-                    <iframe width="600" height="500" id="gmap_canvas"
-                        src="https://maps.google.com/maps?q=30094&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                        scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    <iframe width="800" height="500" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=30094&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                    </iframe>
                     <a href="https://yggtorrent-fr.com"></a>
                     <br>
                 </div>
@@ -89,7 +89,7 @@
                 <p>Tori and Sailus</p>
                 <img src="../testimages/smaller.jpg" alt="Tori Sanford" style="width:50%">
                 <img src="../testimages/IMG_0354 - Copy.jpg" alt="Sailus Sanford, Dog" style="width:50%">
-              </div>
+            </div>
         </div>
 
         <div class="column">
@@ -115,6 +115,7 @@
     <script>
         $(document).foundation();
     </script>
+    <script src="../public/js/index.js"></script>
 </body>
 
 </html>
