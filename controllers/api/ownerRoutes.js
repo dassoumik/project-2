@@ -28,11 +28,11 @@ router.get('/:id', async (req, res) => {
         .json({ message: 'Incorrect owner, please try again' });
       return;
     } else {
-        const ownerData = userData.map((owner) =>
-       owner.get({ plain: true }));
+      //   const ownerData = userData.map((owner) =>
+      //  owner.get({ plain: true }));
         res
           .render('owner', {
-              ...ownerData,
+              owner_data: userData.dataValues,
               logged_in: req.session.logged_in,
           });
     }
