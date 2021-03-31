@@ -47,10 +47,11 @@ router.get('/:id', async (req, res) => {
         //   const dogSimpleData = dogData.map((dog) =>
         //    dog.get({ plain: true }));
         //    console.log(dogSimpleData);
+        const simpleDogData = dogData.get({ plain: true });
           res
             .render('dogpage', {
                 // owner_data: dogData.dogOwner.dataValues,
-                dog_data: dogData.datavalues,
+                simpleDogData,
                 logged_in: req.session.logged_in,
             });
       }
