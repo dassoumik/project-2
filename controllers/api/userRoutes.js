@@ -16,6 +16,15 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+   try{
+     const updateData = await User.update(req.body, {where: {id: req.params.id,},} );
+     res.status(200).json(updateData);
+   } catch (err) {
+     console.error( err );
+   }
+});
+
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
