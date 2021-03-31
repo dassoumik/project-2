@@ -205,10 +205,12 @@ console.log(dateData);
       //   const dateSimpleData = dateData.map((date) =>
       //    date.get({ plain: true }));
       //    console.log(dateSimpleData);
+      const simpleTwoDayData = dateData.map((date) =>
+      date.get({ plain: true }));
         res
-          .render('datebyzip', {
+          .render('nexttwodays', {
               // owner_data: dateData.dateOwner.dataValues,
-              date_data: dateData.datavalues,
+              simpleTwoDayData,
               // date_data2: dateData2.datavalues,
               logged_in: req.session.logged_in,
           });
