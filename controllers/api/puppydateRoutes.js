@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const session = require('express-session');
 const { Op } = require('sequelize');
-const { User, Owner, PuppyDate, OwnerDate } = require('../../models');
+const { User, Owner, Dog, PuppyDate, OwnerDate } = require('../../models');
 // const PuppyDate = require('../../models/PuppyDate');
 var { DateTime } = require('luxon');
 
@@ -112,24 +112,41 @@ console.log(dateData);
   }
 });
 
-const currentTime = DateTime.now().toISODate();
-const futureTime1  = new DateTime(currentTime).plus({days: 1}).toISODate(); 
-const futureTime2  = new DateTime(currentTime).plus({days: 2}).toISODate(); 
-console.log(futureTime1, futureTime2);
+// const currentTime = DateTime.now().toISODate();
+// const futureTime1  = new DateTime(currentTime).plus({days: 1}).toISODate(); 
+// const futureTime2  = new DateTime(currentTime).plus({days: 2}).toISODate(); 
+// console.log(currentTime, futureTime1, futureTime2);
 
-router.get('/search', async (req, res) => {
+router.get('/search/today', async (req, res) => {
+  console.log("in serach date");
+  const currentTime = DateTime.now().toISODate();
   try {
-    const dateData = await PuppyDate.findAll({where: {date: currentTime }},
-     {
+    const dateData = await PuppyDate.findAll({where: [{date: currentTime }]},
+    //  {
   //    include: [{ model: 'owner', as: 'dateOwner' }],
-      include: [{ all: true, nested: true }],
-   });
+      // include: [{ all: true, nested: true }],
+  //  }
+   );
   //  const dateData2 = await Date.findAll({where: {participant2_id: req.params.id }},
     // {
  //    include: [{ model: 'owner', as: 'dateOwner' }],
     //  include: [{ all: true, nested: true }],
   // });
 console.log(dateData);
+// let dogs1 = [];
+// let dogs2 = [];
+
+// for(const dates in dateData) {
+//   console.log(dates.dataValues.dog1_id);
+// const dog1 = await Dog.findByPk(dates.dataValues.dog1_id, {include: Owner});
+// const dog2 = await Dog.findByPk(dates.dataValues.dog2_id, {include: Owner});
+// dogs1.push(JSON.stringify(dog1, null, 2));
+// dogs2.push(JSON.stringify(dog2, null, 2));
+
+// console.log(dog1, dog2);
+// }     
+//  { where: [{id: dateData[0].dataValues.id }] }
+      // )
     if (!dateData) {
       res
         .status(400)
@@ -139,16 +156,23 @@ console.log(dateData);
       //   const dateSimpleData = dateData.map((date) =>
       //    date.get({ plain: true }));
       //    console.log(dateSimpleData);
+      // const simpleDateData = JSON.stringify(dateData, null, 2);
+      // simpleDateData = simpleDateData.map(data => data.get({plain: true}));
+      const simpleData = dateData.map((date) =>
+      date.get({ plain: true }));
+      console.log("simple", ...simpleData);
         res
-          .render('datebyzip', {
+          .render('datesearch', {simpleData,
+          // {
               // owner_data: dateData.dateOwner.dataValues,
-              date_data: dateData.datavalues,
+              
+              // simpleDateData,
               // date_data2: dateData2.datavalues,
-              logged_in: req.session.logged_in,
+              logged_in: req.session.logged_in
           });
-    }
+    // }
 
-  } catch (err) {
+}} catch (err) {
     res.status(500).json(err);
   }
 });
