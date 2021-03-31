@@ -26,17 +26,11 @@
             <div class="top-bar-left">
                 <!-- Style setting from foundation -->
                 <ul class="dropdown menu" data-dropdown-menu>
-                    <li class="menu-text">What would you like to do?</li>
+                    <li class="menu-text" style="font-family: 'Times New Roman', Times, serif; font-size: large;">What would you like to do?</li>
                     <!-- clickable HTML links for the other pages  -->
-                    <li><a href="#" class="link"><a href="puppyplaydate.html">Set up a Puppy Play Date</a></li>
-                    <li><a href="#" class="link"><a href="browseplaydates.html">Browse todays play dates</a></li>
-                    <li><a href="#" class="link"><a href="nexttwodays.html">View the next two days play dates</a></li>
-                </ul>
-            </div>
-            <!-- Login buttom to the right -->
-            <div class="top-bar-right">
-                <ul class="menu">
-                    <li><button type="button" class="button" id="login">Login or Sign up</button></li>
+                    <li><a href="puppyplaydate.html" class="link" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Set up a Puppy Play Date!</a></li>
+                    <li><a href="browseplaydates.html" class="link" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" > Browse the play dates for today!</a></li>
+                    <li><a href="nexttwodays.html" class="link" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Look at the next two days play dates!</a></li>
                 </ul>
             </div>
         </div>
@@ -47,23 +41,26 @@
     <!-- Input for zip code -->
     <div class="input-group">
         <input type="text" class="form-control inputZip" placeholder="Zip Code" id="userInput">
+        <!-- Submit button -->
         <button class="btn btn-outline-secondary" type="button" id="submitBtn">Submit</button>
+        <!-- clear button -->
         <button onclick="document.getElementById('userInput').value = ''" class="btn btn-outline-secondary"
             type="button" id="clearBtn">Clear</button>
     </div>
+    <!-- Removing these, just doesnt look good.  -->
     <!-- User images, dog images, and container for map -->
-    <div class="medium-2 columns">
+    <!-- <div class="medium-2 columns">
         <p><img src="https://placehold.it/200x200&text=Other cool article" alt="article promo image"
                 alt="advertisement for deep fried Twinkies" id="profile_img_human"></p>
         <p><img src="https://placehold.it/200x200&text=Other cool article" alt="article promo image"
                 id="profile_img_dog"></p>
-    </div>
+    </div> -->
     <!-- Location for the map -->
     <div class="row">
-        <div class="medium-10 columns">
+        <div class="medium-12 columns">
             <div class="mapouter">
                 <div class="gmap_canvas">
-                    <iframe width="800" height="500" id="gmap_canvas"
+                    <iframe width="1500" height="500" id="gmap_canvas"
                         src="https://maps.google.com/maps?q=30094&t=&z=13&ie=UTF8&iwloc=&output=embed">
                     </iframe>
                     <a href="https://yggtorrent-fr.com"></a>
@@ -76,7 +73,7 @@
     <hr>
     <!-- HR makes the line  -->
     <div class="row column">
-        <h4 style="margin: 0;" class="text-center">Who is nearby?</h4>
+        <h4 style="margin: 0;" class="text-center" style="font-family: 'Times New Roman', Times, serif;"> Who is nearby?</h4>
     </div>
     <!-- HR makes the line  -->
     <hr>
@@ -100,11 +97,11 @@
             <img src="https://placehold.it/400x370&text=Look at me!" alt="image for person" class="nearbypeople">
         </div>
 
-        <div class="column show-for-medium">
+        <div class="column">
             <img src="https://placehold.it/400x370&text=Look at me!" alt="image for person" class="nearbypeople">
         </div>
 
-        <div class="column show-for-large">
+        <div class="column">
             <img src="https://placehold.it/400x370&text=Look at me!" alt="image for person" class="nearbypeople">
         </div>
 
