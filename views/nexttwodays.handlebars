@@ -68,14 +68,19 @@
 <div class="container">
 <h1>Play Dates Available Next Two Todays</h1>
 
-{{#each simpleData as |date|}}  
+{{#each simpleTwoDayData as |date|}}  
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
+        <div class="bg-primary text-white text-center rounded-lg ">
+           {{date.date}} 
+        </div>
+    </div>
+    <div class="col-md-2">
         <div class="bg-primary text-white text-center rounded-lg ">
            {{date.time}} 
         </div>
     </div>
-    <div class="col-md-3 bg-primary text-white text-center rounded-lg mb-4">
+    <div class="col-md-2 bg-primary text-white text-center rounded-lg mb-4">
         {{date.location}}
     </div>
     <div class="col-md-3">
