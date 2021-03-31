@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const session = require('express-session');
-const { User, Owner } = require('../../models');
+const { User, Owner, Dog } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -16,11 +16,11 @@ router.post('/',  async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const userData = await Owner.findByPk(req.params.id, {
+    const userData = await Owner.findByPk(req.params.id, { include: Dog });
       // include: [{ model: 'user', as: 'userOwner' }],
-      include: [{ all: true, nested: true }],
-    });
-    console.log(userData);
+     // include: [{ all: true, nested: true }],
+    //});
+    console.log(JSON.stringify(userData, null, 2));
 
     if (!userData) {
       res

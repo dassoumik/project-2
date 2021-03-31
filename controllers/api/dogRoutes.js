@@ -30,12 +30,13 @@ router.post('/',  async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+  console.log("in dog route id");
     try {
       const dogData = await Dog.findByPk(req.params.id,
-       {
-    //    include: [{ model: 'owner', as: 'dogOwner' }],
-        include: [{ all: true, nested: true }],
-     });
+       { include: Owner});
+      //  include: [{ model: 'owner', as: 'OwnerDog' }, { model: OwnerDog, as: 'dogOwner' }],
+        // include: [{ all: true, nested: true }],
+    //  });
   console.log(dogData);
       if (!dogData) {
         res

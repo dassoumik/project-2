@@ -24,16 +24,19 @@ Owner.belongsTo(User, {
 //     constraints: false,
 // });
 
-Owner.belongsToMany(Dog, {
-    through: {
-        model: OwnerDog,
-        foreignKey: 'owner_id',
-        unique: false,
-        onDelete: 'cascade'
-    },
-    as: 'dogOwner',
-    constraints: false,
-});
+Owner.hasMany(Dog);
+Dog.belongsTo(Owner);
+
+// Owner.belongsToMany(Dog, {
+//     through: {
+//         model: OwnerDog,
+//         foreignKey: 'owner_id',
+//         unique: false,
+//         onDelete: 'cascade'
+//     },
+//     as: 'dogOwner',
+//     constraints: false,
+// });
 
 Owner.belongsToMany(PuppyDate, {
     as: 'owner1Date',
