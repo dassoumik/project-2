@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- name that appears in tab -->
     <title>NEED A NAME</title>
+    <!--- font awesome --->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- link to foundation -->
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <!-- link to bootstrap -->
@@ -24,14 +26,14 @@
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
+      <nav class="nav navbar text-right"> 
       <h1>
-        <a href="/">Project 2</a>
+        <a class="" href="/">Project 2</a>
       </h1>
-      <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="btn btn-primary" id="logout">logout</button>
+        <a class="nav-item mr-auto" href="/profile">profile</a> 
+        <button class="btn btn-primary nav-item text-right" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}

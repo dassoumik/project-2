@@ -22,7 +22,7 @@
 <body>
     <header>
         <!-- Navigation bar -->
-        <div class="top-bar">
+        <div class="top-bar" style="width: 58%">
             <div class="top-bar-left">
                 <!-- Style setting from foundation -->
                 <ul class="dropdown menu" data-dropdown-menu>
@@ -32,7 +32,24 @@
                     <li><a href="browseplaydates.handlebars" class="link" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" > Browse the play dates for today!</a></li>
                     <li><a href="nexttwodays.handlebars" class="link" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Look at the next two days play dates!</a></li> --}}
                 <button class="btn button btn-danger today-dates">Browse Playdates</button>
+                <button class="btn button btn-danger browse-dates">Dates Today</button>
+                <button class="btn button btn-danger browse-dates">Dates in 2 days</button>
                 
+    
+    <div class="mt-3 input-group">
+        <form class="row g-3">
+         <div class="col">
+        <input type="text" class="form-control inputZip mr-0 pr-0" placeholder="Users by Zip" id="userInput">
+         </div>
+        <!-- Submit button -->
+        <div class="col ml-0 pl-0">
+        <button class="btn button btn-small no-borders btn-outline-secondary bg-danger text-white" type="button" id="submitBtn"><i class="fas fa-search"></i></button>
+        <!-- clear button -->
+        {{!-- <button onclick="document.getElementById('userInput').value = ''" class="btn button btn-small btn-outline-secondary"
+            type="button" id="clearBtn">Clear</button></input> --}}
+         </div>   
+        </form>    
+    </div>
                 
                 </ul>
             </div>
@@ -42,14 +59,6 @@
     <br>
     <!-- To add some white spacing -->
     <!-- Input for zip code -->
-    <div class="input-group">
-        <input type="text" class="form-control inputZip" placeholder="Zip Code" id="userInput">
-        <!-- Submit button -->
-        <button class="btn btn-outline-secondary" type="button" id="submitBtn">Submit</button>
-        <!-- clear button -->
-        <button onclick="document.getElementById('userInput').value = ''" class="btn btn-outline-secondary"
-            type="button" id="clearBtn">Clear</button>
-    </div>
     <!-- Removing these, just doesnt look good.  -->
     <!-- User images, dog images, and container for map -->
     <!-- <div class="medium-2 columns">
@@ -60,10 +69,11 @@
     </div> -->
     <!-- Location for the map -->
     <div class="row">
-        <div class="medium-12 columns">
+        {{!-- <div class="medium-6 columns"> --}}
+            <div class="col-md-5">
             <div class="mapouter">
                 <div class="gmap_canvas">
-                    <iframe width="1500" height="500" id="gmap_canvas"
+                    <iframe width="750" height="500" id="gmap_canvas"
                         src="https://maps.google.com/maps?q=30094&t=&z=13&ie=UTF8&iwloc=&output=embed">
                     </iframe>
                     <a href="https://yggtorrent-fr.com"></a>
@@ -71,6 +81,11 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3"></div>
+       <div class="col-md-4">
+        <img src="https://www.telegraph.co.uk/content/dam/news/2016/06/20/101179724_stoned-dogs-NEWS_trans_NvBQzQNjv4BqD3d2dmOlWYuQkR76XZjLQKOylOV7i1cNNz18XOj47vE.jpg?imwidth=450" alt="Home Page Image">
+        <img class="mt-5" src="https://d14zyouj9r0hpo.cloudfront.net/wp-content/uploads/2020/12/Top-10-Dog-Parks-Southeast-Michigan.jpg" alt="Home Page Image">
+       </div>
     </div>
     <!-- HR makes the line  -->
     <hr>
