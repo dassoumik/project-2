@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Link for our CSS sheet -->
     <link href="./stylesheet.css">
-    
+
 </head>
 
 
@@ -27,12 +27,12 @@
                 <!-- Style setting from foundation -->
                 <ul class="dropdown menu" data-dropdown-menu>
                     <li class="menu-text" style="font-family: 'Times New Roman', Times, serif; font-size: large;">What would you like to do?</li>
-                   <!-- clickable HTML links for the other pages  -->
+                    <!-- clickable HTML links for the other pages  -->
                     <li><a href="puppyplaydate.handlebars" class="link" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Set up a Puppy Play Date!</a></li>
                     <li><a href="browseplaydates.handlebars" class="link" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" > Browse the play dates for today!</a></li>
                     <li><a href="nexttwodays.handlebars" class="link" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Look at the next two days play dates!</a></li>
                 </ul>
-            </div> 
+            </div>
         </div>
     </header>
     <!-- To add some white spacing -->
@@ -42,28 +42,37 @@
     <div class="input-group">
         <form action="/action_page.php">
             <label for="fname">Enter Zip Code</label><br>
-            <input type="text" id="fname" name="fname" value="Zip Code"><br>
+            <input onclick="document.getElementById('browsezip').value = ''" type="text" id="browsezip" name="fname"
+                value="Zip Code"><br>
             <!-- STOPPED HERE -->
-            <label for="lname">What time?</label><br>
-            <input type="text" id="lname" name="lname" value="Afternoon"><br><br>
+            <label for="lname">What time?</label>
+            <br>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Select a Time</option>
+                <option class="Morning" value="Morning">Morning</option>
+                <option class="Afternoon" value="Afternoon">Afternoon</option>
+                <option class="Evening" value="Evening">Evening</option>
+              </select>
+                <br>
+                <br>
             <!-- this is the button to submit the login -->
           <button type="button" class="btn btn-primary">Submit</button>
                <!-- this is the button to clear the login screen -->
           <button type="button" class="btn btn-secondary">Clear</button>
-          <!-- go back to homepage -->
-          <button type="button" class="btn btn-light"> <a href="index.html" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Return to homepage</a></button>
+         <!-- go back to homepage -->
+         <button type="button" class="btn btn-light"> <a href="index.html" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Return to homepage</a></button>
           </form> 
     </div>
 
 
 
 
-        <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-        <script>
-            $(document).foundation();
-        </script>
-    </body>
-    
-    </html>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+
+</html>
