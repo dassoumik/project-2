@@ -26,17 +26,11 @@
             <div class="top-bar-left">
                 <!-- Style setting from foundation -->
                 <ul class="dropdown menu" data-dropdown-menu>
-                    <li class="menu-text">What would you like to do?</li>
-                        <!-- clickable HTML links for the other pages  -->
-                        <li><a href="#" class="link"><a href="puppyplaydate.html" >Set up a Puppy Play Date</a></li>
-                        <li><a href="#" class="link"><a href="browseplaydates.html" >Browse todays play dates</a></li>
-                        <li><a href="#" class="link"><a href="nexttwodays.html" >View the next two days play dates</a></li>
-                </ul>
-            </div>
-            <!-- Login buttom to the right -->
-            <div class="top-bar-right">
-                <ul class="menu">
-                    <li><button type="button" class="button" id="login">Login or Sign up</button></li>
+                    <li class="menu-text" style="font-family: 'Times New Roman', Times, serif; font-size: large;">What would you like to do?</li>
+                    <!-- clickable HTML links for the other pages  -->
+                    <li><a href="puppyplaydate.html" class="link" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Set up a Puppy Play Date!</a></li>
+                    <li><a href="browseplaydates.html" class="link" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" > Browse the play dates for today!</a></li>
+                    <li><a href="nexttwodays.html" class="link" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Look at the next two days play dates!</a></li>
                 </ul>
             </div>
         </div>
@@ -48,16 +42,26 @@
     <div class="input-group">
         <form action="/action_page.php">
             <label for="fname">Enter Zip Code</label><br>
-            <input type="text" id="fname" name="fname" value="Zip Code"><br>
-            <!-- STOPPED HERE -->
-            <label for="lname">What time?</label><br>
-            <input type="text" id="lname" name="lname" value="Afternoon"><br><br>
+            <input onclick="document.getElementById('nexttwozip').value = ''" type="text" id="nexttwozip" name="fname"
+            value="Zip Code">
+            <br>
+        <!-- STOPPED HERE -->
+        <label for="lname">What time?</label>
+        <br>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Select a Time</option>
+            <option class="Morning" value="Morning">Morning</option>
+            <option class="Afternoon" value="Afternoon">Afternoon</option>
+            <option class="Evening" value="Evening">Evening</option>
+          </select>
+            <br>
+            <br>
             <!-- this is the button to submit the login -->
           <button type="button" class="btn btn-primary">Submit</button>
                <!-- this is the button to clear the login screen -->
           <button type="button" class="btn btn-secondary">Clear</button>
-          <!-- go back to homepage -->
-          <button type="button" class="btn btn-light"> <a href="index.html">Return to homepage</a></button>
+         <!-- go back to homepage -->
+         <button type="button" class="btn btn-light"> <a href="index.html" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Return to homepage</a></button>
           </form> 
     </div>
 
