@@ -26,6 +26,11 @@ Owner.belongsTo(User, {
 
 Owner.hasMany(Dog);
 Dog.belongsTo(Owner);
+// Owner.hasMany(PuppyDate, {foreignkey: 'participant1_id'});
+// Owner.hasMany(PuppyDate, {foreignkey: 'participant2_id'});
+
+// PuppyDate.belongsTo(Owner);
+// PuppyDate.belongsTo(Dog);
 
 // Owner.belongsToMany(Dog, {
 //     through: {

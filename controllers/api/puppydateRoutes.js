@@ -39,16 +39,20 @@ router.post('/',  async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const dateData = await PuppyDate.findAll({where: {participant1_id: req.params.id }},
-     {
+     { 
+      include: Owner
+      // include: [{ model: 'owner', as: 'owner1Date' }],
   //    include: [{ model: 'owner', as: 'dateOwner' }],
-      include: [{ all: true, nested: true }],
+      // include: [{ all: true, nested: true }],
    });
    const dateData2 = await PuppyDate.findAll({where: {participant2_id: req.params.id }},
     {
  //    include: [{ model: 'owner', as: 'dateOwner' }],
      include: [{ all: true, nested: true }],
   });
-console.log(dateData);
+console.log(JSON.stringify(dateData, null, 2));
+console.log(JSON.stringify(dateData2, null, 2));
+
     if (!dateData && !dateData2) {
       res
         .status(400)
@@ -109,8 +113,9 @@ console.log(dateData);
 });
 
 const currentTime = DateTime.now().toISODate();
-const futureTime1  = DateTime.now().plus(1, 'days').toISODate(); 
-const futureTime2  = DateTime.now().plus(2, 'days').toISODate(); 
+const futureTime1  = new DateTime(currentTime).plus({days: 1}).toISODate(); 
+const futureTime2  = new DateTime(currentTime).plus({days: 2}).toISODate(); 
+console.log(futureTime1, futureTime2);
 
 router.get('/search', async (req, res) => {
   try {
@@ -150,8 +155,13 @@ console.log(dateData);
 
 router.get('/search/nexttwodays', async (req, res) => {
   // const sessionDateToday = new Date.now();
+  const currentTime = DateTime.now().toISODate();
+const futureTime1  = new DateTime(currentTime).plus({days: 1}).toISODate(); 
+const futureTime2  = new DateTime(currentTime).plus({days: 2}).toISODate(); 
+console.log(futureTime1, futureTime2);
+
   try {
-    const dateData = await PuppyDate.findAll({where:  { [Op.or]: [{date: {currentTime}}, {date: {futureTime1}}, {date: {futureTime2}}]}},
+    const dateData = await PuppyDate.findAll({where:  { [Op.or]: [{date: currentTime}, {date: futureTime1}, {date: futureTime2}]}},
      {
   //    include: [{ model: 'owner', as: 'dateOwner' }],
       include: [{ all: true, nested: true }],
