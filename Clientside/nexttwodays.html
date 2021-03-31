@@ -42,10 +42,20 @@
     <div class="input-group">
         <form action="/action_page.php">
             <label for="fname">Enter Zip Code</label><br>
-            <input type="text" id="fname" name="fname" value="Zip Code"><br>
-            <!-- STOPPED HERE -->
-            <label for="lname">What time?</label><br>
-            <input type="text" id="lname" name="lname" value="Afternoon"><br><br>
+            <input onclick="document.getElementById('nexttwozip').value = ''" type="text" id="nexttwozip" name="fname"
+            value="Zip Code">
+            <br>
+        <!-- STOPPED HERE -->
+        <label for="lname">What time?</label>
+        <br>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Select a Time</option>
+            <option class="Morning" value="Morning">Morning</option>
+            <option class="Afternoon" value="Afternoon">Afternoon</option>
+            <option class="Evening" value="Evening">Evening</option>
+          </select>
+            <br>
+            <br>
             <!-- this is the button to submit the login -->
           <button type="button" class="btn btn-primary">Submit</button>
                <!-- this is the button to clear the login screen -->
