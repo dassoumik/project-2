@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
       // include: [{ model: 'user', as: 'userOwner' }],
      // include: [{ all: true, nested: true }],
     //});
-    console.log(JSON.stringify(userData, null, 2));
+    // console.log(JSON.stringify(userData, null, 2));
 
     if (!userData) {
       res
@@ -30,9 +30,10 @@ router.get('/:id', async (req, res) => {
     } else {
       //   const ownerData = userData.map((owner) =>
       //  owner.get({ plain: true }));
+      const simpleOwnerData = userData.get({ plain: true });
         res
           .render('owner', {
-              owner_data: userData.dataValues,
+              simpleOwnerData,
               logged_in: req.session.logged_in,
           });
     }
