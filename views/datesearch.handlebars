@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Play Dates Available Today</h1>
+    <h1>Play Dates Scheduled Today</h1>
 
     <div class="row">
         <table>
@@ -10,6 +10,8 @@
                 <th>Zip</th>
                 <th>Owner Profile</th>
                 <th>Dog Profile</th>
+                <th>Other Owner</th>
+                <th>Other Dog</th>
             </tr>
             {{#each simpleData as |date|}}
             <tr style="background-color: #e2bcb7;">
@@ -20,6 +22,10 @@
                 <td><a class='btn button btn-primary border rounded-lg' href='/api/owners/{{date.participant1_id}}'>
                         Check Participant</a></td>
                 <td><a class='btn button btn-primary border rounded-lg' href='/api/dogs/{{date.dog1_id}}'>
+                        Check Dog</a></td>
+                <td><a class='btn button btn-primary border rounded-lg' href='/api/owners/{{date.participant2_id}}'>
+                        Check Participant</a></td>
+                <td><a class='btn button btn-primary border rounded-lg' href='/api/dogs/{{date.dog2_id}}'>
                         Check Dog</a></td>
             </tr>
             {{/each}}
