@@ -1,0 +1,24 @@
+<div class="container">
+<h1>Open Play Dates Available</h1>
+
+{{#each simpleData as |date|}}  
+<div class="row">
+    <div class="col-md-3">
+        <div class="bg-primary text-white text-center rounded-lg ">
+           {{date.time}} 
+        </div>
+    </div>
+    <div class="col-md-3 bg-primary text-white text-center rounded-lg mb-4">
+        {{date.location}}
+    </div>
+    <div class="col-md-3">
+        <a class='btn button btn-primary border rounded-lg' href='/api/owners/{{date.participant1_id}}'>
+        Check Participant</a>
+    </div>
+    <div class="col-md-3">
+        <a class='btn button btn-primary border rounded-lg' href='/api/dogs/{{date.dog1_id}}'>
+        Check Dog</a>
+    </div>
+</div>
+{{/each}}
+</div>

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const session = require('express-session');
 const { Op } = require('sequelize');
-const { User, Owner, Dog, PuppyDate, OwnerDate } = require('../../models');
+const { User, Owner, Dog, PuppyDate, OwnerDate, DateList } = require('../../models');
 // const PuppyDate = require('../../models/PuppyDate');
 var { DateTime } = require('luxon');
 
@@ -216,6 +216,29 @@ console.log(dateData);
           });
     // }
 
+}} catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/search/list', async (req, res) => {
+  console.log("in serach date");
+  try {
+    const dateData = await DateList.findAll();
+  
+console.log(dateData);
+    if (!dateData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect date, please try again' });
+      return;
+    } else {
+      const simpleData = dateData.map((date) =>
+      date.get({ plain: true }));
+        res
+          .render('datelist', {simpleData,
+            logged_in: req.session.logged_in
+          });
 }} catch (err) {
     res.status(500).json(err);
   }
