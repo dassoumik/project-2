@@ -50,6 +50,32 @@ router.get('/listform',  async (req, res) => {
 }
 });
 
+router.post('/profile/add',  async (req, res) => {
+  console.log('in profile add');
+  console.log(req.body);
+  try {
+    const userData = await Owner.create(req.body);
+    console.log(userData);
+    res.status(200).json(userData);
+    
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.get('/profile/add',  async (req, res) => {
+  console.log('in profile add');
+  console.log(req.body);
+  try {
+    
+    await res.render('profileupdate', {user_id: req.session.user_id,
+                                 logged_in: req.session.logged_in});
+    
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const userData = await Owner.findByPk(req.params.id, { include: Dog });

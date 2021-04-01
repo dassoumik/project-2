@@ -32,7 +32,7 @@ Owner.init({
     allowNull: false,
   },
   dob: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATEONLY,
   },
   gender: {
     type: DataTypes.STRING,
