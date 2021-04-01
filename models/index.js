@@ -4,6 +4,7 @@ const Owner = require('./Owner');
 const PuppyDate = require('./PuppyDate');
 const OwnerDate = require('./OwnerDate');
 const OwnerDog = require('./OwnerDog');
+const DateList = require('./DateList');
 
 
 User.hasOne(Owner, {
@@ -26,6 +27,8 @@ Owner.belongsTo(User, {
 
 Owner.hasMany(Dog);
 Dog.belongsTo(Owner);
+Owner.hasMany(DateList);
+Dog.hasMany(DateList);
 // Owner.hasMany(PuppyDate, {foreignkey: 'participant1_id'});
 // Owner.hasMany(PuppyDate, {foreignkey: 'participant2_id'});
 

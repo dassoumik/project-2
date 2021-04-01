@@ -76,6 +76,12 @@ console.log(JSON.stringify(dateData2, null, 2));
   }
 });
 
+router.get('/zip/search', async (req, res) => {
+  res
+          .render('datebyzip')
+});
+
+
 router.get('/zip/:id', async (req, res) => {
   try {
     const dateData = await PuppyDate.findAll({where: {location: req.params.id }},
@@ -83,6 +89,44 @@ router.get('/zip/:id', async (req, res) => {
   //    include: [{ model: 'owner', as: 'dateOwner' }],
       include: [{ all: true, nested: true }],
    });
+  //  const dateData2 = await Date.findAll({where: {participant2_id: req.params.id }},
+    // {
+ //    include: [{ model: 'owner', as: 'dateOwner' }],
+    //  include: [{ all: true, nested: true }],
+  // });
+console.log(dateData);
+    if (!dateData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect date, please try again' });
+      return;
+    } else {
+      //   const dateSimpleData = dateData.map((date) =>
+      //    date.get({ plain: true }));
+      //    console.log(dateSimpleData);
+        res
+          .render('datebyzip', {
+              // owner_data: dateData.dateOwner.dataValues,
+              date_data: dateData.datavalues,
+              // date_data2: dateData2.datavalues,
+              logged_in: req.session.logged_in,
+          });
+    }
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/search/dates/zip/:id/:time', async (req, res) => {
+  console.log(req.params.time);
+  try {
+    const dateData = await PuppyDate.findAll({where: {[Op.and]: [{location: req.params.id },  {time: {[Op.gt]: req.params.time}}]}});
+    //  {
+  //    include: [{ model: 'owner', as: 'dateOwner' }],
+      // include: [{ all: true, nested: true }],
+  //  });
   //  const dateData2 = await Date.findAll({where: {participant2_id: req.params.id }},
     // {
  //    include: [{ model: 'owner', as: 'dateOwner' }],
