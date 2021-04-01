@@ -5,6 +5,8 @@ const PuppyDate = require('./PuppyDate');
 const OwnerDate = require('./OwnerDate');
 const OwnerDog = require('./OwnerDog');
 const DateList = require('./DateList');
+const DogDate = require('./DogDate');
+
 
 
 User.hasOne(Owner, {
@@ -79,6 +81,41 @@ PuppyDate.belongsToMany(Owner, {
   constraints: false,
 });
 
+//
+
+Owner.belongsToMany(PuppyDate, {
+  as: 'dog1Date',
+  through: {
+    model: DogDate,
+    foreignKey: 'owner1_id',
+    unique: false,
+    // onDelete: 'CASCADE',
+  },
+  constraints: false,
+});
+
+Owner.belongsToMany(PuppyDate, {
+  as: 'dog2Date',
+  through: {
+    model: DogDate,
+    foreignKey: 'owner2_id',
+    unique: false,
+    // onDelete: 'CASCADE',
+  },
+  constraints: false,
+});
+
+PuppyDate.belongsToMany(Dog, {
+  as: 'dogdating',
+  through: {
+    model: DogDate,
+    foreignKey: 'date_id',
+    unique: false,
+    // onDelete: 'CASCADE',
+  },
+  constraints: false,
+});
+
 
 module.exports = {
   User,
@@ -87,5 +124,6 @@ module.exports = {
   PuppyDate,
   OwnerDate,
   OwnerDog,
-  DateList
+  DateList,
+  DogDate
 };

@@ -30,7 +30,17 @@ router.post('/create/new/profile', async (req, res) => {
     if (!dogData) {
       res.status(400).json(err);
     } else {
-      res.status(200).json(dogData);
+      const inputOwnerDog = {};
+      inputOwnerDog.owner_id = dogData.dataValues.owner_id;
+      inputOwnerDog.dog_id = dogData.dataValues.id;
+
+
+      const ownerDogData = await OwnerDog.create(inputOwnerDog);
+      if (!ownerDogData) {
+        res.status(400).json(err);
+      } else {
+       res.status(200).json(dogData);
+      }
     }
   } catch (err) {
     res.status(500).json(err);

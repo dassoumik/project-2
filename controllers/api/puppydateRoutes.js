@@ -9,7 +9,8 @@ const {
   Dog,
   PuppyDate,
   OwnerDate,
-  DateList
+  DateList,
+  DogDate
 } = require('../../models');
 const withAuth = require('../../utils/auth');
 
@@ -41,7 +42,9 @@ router.post('/', async (req, res) => {
 router.post('/setdate', async (req, res) => {
   const dateInputData = {};
   const ownerDateData = {};
+  const dogDateData = {};
 
+  // console.log(req.body);
   try {
     const ownerId = await Owner.findOne({
       where: [{
@@ -64,8 +67,8 @@ router.post('/setdate', async (req, res) => {
     dateInputData.date = req.body.date;
     dateInputData.time = req.body.time;
     dateInputData.location = req.body.location;
-    dateInputData.zip = 30346 //req.body.zip;
-
+    dateInputData.zip = req.body.zip;
+    // console.log(dateInputData);
     const dateData = await PuppyDate.create(dateInputData);
     if (!dateData) {
       res.status(400).json(err);
@@ -73,8 +76,13 @@ router.post('/setdate', async (req, res) => {
       ownerDateData.owner1_id = dateData.dataValues.participant1_id;
       ownerDateData.owner2_id = dateData.dataValues.participant2_id;
       ownerDateData.date_id = dateData.dataValues.id;
+      dogDateData.dog1_id = dateData.dataValues.dog1_id;
+      dogDateData.dog2_id = dateData.dataValues.dog2_id;
+      dogDateData.date_id = dateData.dataValues.id;
     }
     await OwnerDate.create(ownerDateData);
+    await DogDate.create(dogDateData);
+    // console.log(req.body.datelist_id);
     await DateList.destroy({
       where: {
         id: req.body.datelist_id
