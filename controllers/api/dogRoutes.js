@@ -66,7 +66,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 router.get('/profile/add', async (req, res) => {
-  console.log("in dog route id");
   try {
     res
       .render('dogprofileupdate', {

@@ -7,7 +7,7 @@ const createDate = async (e) => {
     const dog1_id = document.querySelector('.sel-dog').getAttribute('data-dog-id');
     const dog2_name = document.querySelector('.dog2-name').value.trim();
     const datelist_id = document.querySelector('.dog2-name').getAttribute('data-list-id');
-    const user_id = document.querySelector('.set-date').getAttribute('data-user-id');
+    const user_id = document.querySelector('.header-confirm').getAttribute('data-user-id');
 
     console.log(JSON.stringify({
         date,

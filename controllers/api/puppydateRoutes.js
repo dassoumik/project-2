@@ -221,7 +221,6 @@ router.get('/search/today', async (req, res) => {
         date.get({
           plain: true
         }));
-      console.log("simple", ...simpleData);
       res
         .render('datesearch', {
           simpleData,
