@@ -21,14 +21,22 @@ const submitProfile = async (e) => {
     //   document.location.replace('/profile');
     $('.listed').removeClass('d-none');
     $('.wrong').addClass('d-none');
-
+    $('.create-dog').removeClass('d-none');
+    $('.profile-submit').addClass('d-none');
     } else {
     //   alert(response.statusText);
     $('.wrong').removeClass('d-none');
     $('.listed').addClass('d-none');
-
+    $('.create-dog').addClass('d-none');
+    $('.profile-submit').removeClass('d-none');
     }
   };
 };
 
+const addDog = async (e) => {
+  (e).preventDefault();
+  document.location.replace('/api/dogs/profile/add');
+}
+
 $('.profile-submit').on('click', submitProfile);
+$('.create-dog').on('click', addDog);

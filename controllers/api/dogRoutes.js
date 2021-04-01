@@ -59,6 +59,18 @@ router.get('/:id', async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  });
+  });router.get('/profile/add', async (req, res) => {
+    console.log("in dog route id");
+      try {
+                    res
+              .render('dogprofileupdate', {
+                  user_id: req.session.user_id,
+                  logged_in: req.session.logged_in,
+              });
+      } catch (err) {
+        res.status(500).json(err);
+      }
+    });
+
 
 module.exports = router;
