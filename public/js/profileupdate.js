@@ -9,6 +9,7 @@ const submitProfile = async (e) => {
     const gender = document.querySelector('.your-gender').value.trim();
     const image = document.querySelector('.your-image').value.trim();
     const user_id = document.querySelector('.profile-submit').getAttribute('data-id');
+    console.log(JSON.stringify({ name, age, city, state, zip, dob, gender, image, user_id }));
 
   if (name && age && dob && gender && city && state && zip && user_id) {
     const response = await fetch('/api/owners/profile/add', {
