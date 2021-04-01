@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- name that appears in tab -->
     <title>NEED A NAME</title>
+    <!--- font awesome --->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- link to foundation -->
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <!-- link to bootstrap -->
@@ -24,17 +26,19 @@
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <a href="/">Project 2</a>
+      <nav class="nav navbar bg-danger text-white"> 
+      <h1 style="margin-left: 10px" >
+        <a class="text-white" style="text-decoration: none;" href="/">Project 2</a>
       </h1>
-      <nav>
+      <div style="text-align: right;">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="btn btn-primary" id="logout">logout</button>
+        <a class="btn nav-item ml-auto mr-5 pr-5 text-white" style="margin-right: 10px; text-decoration:none;" href="/profile">profile</a> 
+        <a class="btn nav-item text-right text-white ml-auto mr-4" style="margin-right: 10px; text-decoration: none" id="logout" href="/">logout</a>
         {{else}}
-        <a href="/login">login</a>
+        <a class="btn nav-item text-right text-white ml-auto mr-4" style="margin-right: 10px; text-decoration: none" id="login" href="/login">login</a>
         {{/if}}
+       </div> 
       </nav>
     </header>
     <main class="container container-fluid mt-5">

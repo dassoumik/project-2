@@ -1,0 +1,36 @@
+<form>
+  <div class="form-row">
+    <div>Plaese enter your Date Details!</div> </br>
+    <div class="d-none listed" style="color: red;">Date Listed!</div> </br>
+    <div class="d-none wrong" style="color: red;">Something went wrong, please try again later!</div> </br>
+
+    <div class="col-7">
+      <input type="text" class="form-control dog-name" placeholder="Dog you will bring in Date">
+    </div>
+    <div class="col-7">
+      <input type="text" class="form-control location" placeholder="Location">
+    </div>
+    <div class="col-7">
+      <input type="text" class="form-control selected-date" placeholder="Date">
+    </div>
+    <div class="col-7">
+      <input type="text" class="form-control selected-time" placeholder="Time 24hrs 00:00">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-7">
+      <input type="text" class="form-control city" placeholder="City">
+    </div>
+    <div class="col-7">
+      <input type="text" class="form-control state" placeholder="State">
+    </div>
+    <div class="col-7">
+      <input type="text" class="form-control zip" placeholder="Zip">
+    </div>
+  </div>
+  </br>
+  <button class="btn button btn-danger btn-small list-submit" data-id={{user_id}}>Submit</button>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src=/js/listform.js> </script>

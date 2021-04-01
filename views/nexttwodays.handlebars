@@ -1,4 +1,4 @@
-<!doctype html>
+{{!-- <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
@@ -19,8 +19,8 @@
 </head>
 
 
-<body>
-    <header>
+<body> --}}
+{{!-- <header>
         <!-- Navigation bar -->
         <div class="top-bar">
             <div class="top-bar-left">
@@ -63,17 +63,56 @@
          <!-- go back to homepage -->
          <button type="button" class="btn btn-light"> <a href="index.html" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Return to homepage</a></button>
           </form> 
+    </div> --}}
+
+<div class="container">
+    <h1>Play Dates Scheduled Next Two Todays</h1>
+
+    <div class="row">
+          <table>
+            <tr style="background-color: #b67162; color: white">
+                <th>Date</th>
+                <th>Time</th>
+                <th>Location</th>
+                <th>Zip</th>
+                <th>Owner Profile</th>
+                <th>Dog Profile</th>
+                {{!-- <th>The Dog you will bring</th>
+                <th>Confirm Date</th> --}}
+                <th>Other Owner</th>
+                <th>Other Dog</th>
+            </tr>
+            {{#each simpleTwoDayData as |date|}}
+            <tr style="background-color: #e2bcb7;">
+                <td>{{date.date}}</td>
+                <td>{{date.time}}</td>
+                <td>{{date.location}}</td>
+                <td>{{date.zip}}</td>
+                <td><a class='btn button btn-primary border rounded-lg' href='/api/owners/{{date.participant1_id}}'>
+                        Check Participant</a></td>
+                <td><a class='btn button btn-primary border rounded-lg' href='/api/dogs/{{date.dog1_id}}'>
+                        Check Dog</a></td>
+                <td><a class='btn button btn-primary border rounded-lg' href='/api/owners/{{date.participant2_id}}'>
+                        Check Participant</a></td>
+                <td><a class='btn button btn-primary border rounded-lg' href='/api/dogs/{{date.dog2_id}}'>
+                        Check Dog</a></td>        
+                {{!-- <td><input class='dog2-name' type='text' placeholder='your dog name' data-list-id={{date.id}}></td>
+                <td><button class='btn button btn-danger border rounded-lg set-date' data-user-id={{user_id}}>
+                        Set Date</button></td> --}}
+            </tr>
+            {{/each}}
+        </table>
     </div>
+    {{!-- {{/each}} --}}
+</div>
 
 
-
-
-        <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-        <script>
-            $(document).foundation();
-        </script>
-    </body>
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script>
+    $(document).foundation();
+</script>
+{{!-- </body>
     
-    </html>
+    </html> --}}

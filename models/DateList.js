@@ -4,9 +4,9 @@ const {
 } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class PuppyDate extends Model {}
+class DateList extends Model {}
 
-PuppyDate.init({
+DateList.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -22,25 +22,9 @@ PuppyDate.init({
             key: 'id',
         },
     },
-    participant2_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references: {
-            model: 'owner',
-            key: 'id',
-        },
-    },
     dog1_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-            model: 'dog',
-            key: 'id',
-        },
-    },
-    dog2_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
         references: {
             model: 'dog',
             key: 'id',
@@ -51,7 +35,7 @@ PuppyDate.init({
         allowNull: false,
     },
     time: {
-        type: DataTypes.STRING,
+        type: DataTypes.TIME,
         allownull: false,
     },
     location: {
@@ -67,7 +51,7 @@ PuppyDate.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'puppydate',
+    modelName: 'datelist',
 });
 
-module.exports = PuppyDate;
+module.exports = DateList;

@@ -4,31 +4,15 @@ const {
 } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class PuppyDate extends Model {}
+class DogDate extends Model {}
 
-PuppyDate.init({
+DogDate.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         unique: true,
         autoIncrement: true,
-    },
-    participant1_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'owner',
-            key: 'id',
-        },
-    },
-    participant2_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references: {
-            model: 'owner',
-            key: 'id',
-        },
     },
     dog1_id: {
         type: DataTypes.INTEGER,
@@ -40,34 +24,27 @@ PuppyDate.init({
     },
     dog2_id: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
         references: {
             model: 'dog',
             key: 'id',
         },
     },
-    date: {
-        type: DataTypes.DATEONLY,
-        allowNull: false,
-    },
-    time: {
-        type: DataTypes.STRING,
-        allownull: false,
-    },
-    location: {
-        type: DataTypes.STRING,
-        allownull: false,
-    },
-    zip: {
+    date_id: {
         type: DataTypes.INTEGER,
-        allownull: false,
-    }
+        allowNull: false,
+        references: {
+            model: 'puppydate',
+            key: 'id',
+        },
+    },
+    
 }, {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'puppydate',
+    modelName: 'dog_date',
 });
 
-module.exports = PuppyDate;
+module.exports = DogDate;
