@@ -36,6 +36,52 @@ router.post('/',  async (req, res) => {
   // }
 // });
 
+router.post('/setdate',  async (req, res) => {
+  const dateInputData = {};
+  const ownerDateData = {};
+  console.log("in set date");
+
+  try {
+      console.log(req.body);
+    const ownerId = await Owner.findOne({where: [{user_id: req.body.user_id}]});
+    const dogId = await Dog.findOne({where: {[Op.and]: [{owner_id: ownerId.dataValues.id}, {name: req.body.dog2_name}]}});
+   console.log(dogId);
+    dateInputData.partcipant1_id = req.body.participant1_id;
+    dateInputData.partcipant2_id = ownerId.dataValues.id;
+    dateInputData.dog1_id = req.body.dog1_id;
+    dateInputData.dog2_id = dogId.dataValues.id;
+    // dateInputData.date = DateTime.fromISO(req.body.date).toISODate();
+    // dateInputData.time = DateTime.fromISO(req.body.time).toISOTime();
+    dateInputData.date = req.body.date;
+    dateInputData.time = req.body.time;
+    dateInputData.location = req.body.location;
+    dateInputData.zip = 30346 //req.body.location;
+    console.log(dateInputData);
+
+    const dateData = await PuppyDate.create(dateInputData);
+    console.log(dateData);
+    // .then(dateResponse, async () => {
+      if (!dateData) {
+          res.status(400).json(err);
+      } else {
+          ownerDateData.owner1_id = dateData.dataValues.participant1_id;
+          ownerDateData.owner2_id = dateData.dataValues.participant2_id;
+          ownerDateData.date_id = dateData.dataValues.id;
+          }
+          await OwnerDate.create(ownerDateData);
+          await DateList.destroy({ where: { id: req.body.datelist_id}});
+          res.status(200).json(dateData);
+          // return dateData;
+        } catch (err) {
+          err => console.error(err);
+        }
+  
+      }) ;
+  // } catch (err) {
+  //   res.status(400).json(err);
+  // }
+// });
+
 router.get('/:id', async (req, res) => {
   try {
     const dateData = await PuppyDate.findAll({where: {participant1_id: req.params.id }},
@@ -235,9 +281,11 @@ console.log(dateData);
     } else {
       const simpleData = dateData.map((date) =>
       date.get({ plain: true }));
+      console.log(req.session.user_id);
         res
           .render('datelist', {simpleData,
-            logged_in: req.session.logged_in
+            user_id: req.session.user_id,
+            logged_in: req.session.logged_in,
           });
 }} catch (err) {
     res.status(500).json(err);

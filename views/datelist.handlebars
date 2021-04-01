@@ -1,24 +1,38 @@
 <div class="container">
 <h1>Open Play Dates Available</h1>
+<div class="d-none listed" style="color: red;">Date Set up Successfull!</div> </br>
+<div class="d-none wrong" style="color: red;">Something went wrong, please try again later!</div> </br>
 
-{{#each simpleData as |date|}}  
 <div class="row">
-    <div class="col-md-3">
-        <div class="bg-primary text-white text-center rounded-lg ">
-           {{date.time}} 
-        </div>
-    </div>
-    <div class="col-md-3 bg-primary text-white text-center rounded-lg mb-4">
-        {{date.location}}
-    </div>
-    <div class="col-md-3">
-        <a class='btn button btn-primary border rounded-lg' href='/api/owners/{{date.participant1_id}}'>
-        Check Participant</a>
-    </div>
-    <div class="col-md-3">
-        <a class='btn button btn-primary border rounded-lg' href='/api/dogs/{{date.dog1_id}}'>
-        Check Dog</a>
-    </div>
-</div>
+
+<table>
+        <tr style="background-color: #b67162; color: white">
+            <th>Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Zip</th>
+            <th>Owner Profile</th>
+            <th>Dog Profile</th>
+            <th>The Dog you will bring</th>
+            <th>Confirm Date</th>
+        </tr>
+{{#each simpleData as |date|}}  
+<tr style="background-color: #e2bcb7;">
+            <td>{{date.date}}</td>
+            <td>{{date.time}}</td>
+            <td>{{date.location}}</td>
+            <td>{{date.zip}}</td>
+            <td><a class='btn button btn-primary border rounded-lg' href='/api/owners/{{date.participant1_id}}'>
+        Check Participant</a></td>
+        <td><a class='btn button btn-primary border rounded-lg' href='/api/dogs/{{date.dog1_id}}'>
+        Check Dog</a></td>
+        <td><input class='dog2-name' type='text' placeholder='your dog name' data-list-id = {{date.id}}  ></td>
+        <td><button class='btn button btn-danger border rounded-lg set-date' data-user-id = {{user_id}} >
+        Set Date</button></td>
+        </tr>
 {{/each}}
+    </table>
 </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/js/setdate.js"></script>

@@ -51,7 +51,7 @@ PuppyDate.init({
         allowNull: false,
     },
     time: {
-        type: DataTypes.TIME,
+        type: DataTypes.STRING,
         allownull: false,
     },
     location: {

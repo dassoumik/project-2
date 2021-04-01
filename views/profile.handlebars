@@ -1,4 +1,4 @@
-<head>
+{{!-- <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- name that appears in tab -->
@@ -10,9 +10,9 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <!-- Link for our CSS sheet -->
     <link href="./stylesheet.css">
-</head>
+</head> --}}
 
-  <body>
+  {{!-- <body> --}}
         <!-- Navigation bar -->
         <div class="top-bar">
             <div class="top-bar-left">
@@ -27,6 +27,7 @@
       <div class="row column text-center">
         <h1>Welcome, {{email}}!</h1>
         <p class="lead">What would you like to do today?</p>
+        <a href="/api/puppydates/search/list" class="button btn-danger large hollow" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; background-color: #b67162, color: black;" >Checkout Open Dates Available</a>
         <a href="/api/owners/listform" class="button large" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: white;" >Set up a Puppy Play Date</a>
         <a href="/api/puppydates/search/today" class="button large hollow" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Browse Puppy Play Dates</a>
         <a href="/api/puppydates/search/nexttwodays" class= "button large" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: white;" >Browse Puppy Play Dates for the next two days</a>
@@ -39,8 +40,8 @@
     <script>
       $(document).foundation();
     </script>
-  </body>
-</html>
+  {{!-- </body>
+</html> --}}
 
 
 
