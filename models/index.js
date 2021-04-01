@@ -86,5 +86,6 @@ module.exports = {
     Owner,
     PuppyDate,
     OwnerDate,
-    OwnerDog
+    OwnerDog,
+    DateList
 };
