@@ -12,36 +12,43 @@
     <link href="./stylesheet.css">
 </head> --}}
 
-  {{!-- <body> --}}
-        <!-- Navigation bar -->
-        <div class="top-bar">
-            <div class="top-bar-left">
-                <!-- Style setting from foundation -->
-                <ul class="dropdown menu" data-dropdown-menu>
-                    <li class="menu-text" style="font-family: 'Times New Roman', Times, serif; font-size: large;"></li>
-                </ul>
-            </div>
-        </div>
+{{!-- <body> --}}
+<!-- Navigation bar -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <!-- Style setting from foundation -->
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text" style="font-family: 'Times New Roman', Times, serif; font-size: large;"></li>
+    </ul>
+  </div>
+</div>
 
-    <div class="callout large">
-      <div class="row column text-center">
-        <h1>Welcome, {{email}}!</h1>
-        <p class="lead">What would you like to do today?</p>
-        <a href="/api/puppydates/search/list" class="button btn-danger large hollow" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; background-color: #b67162, color: black;" >Checkout Open Dates Available</a>
-        <a href="/api/owners/listform" class="button large" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: white;" >Set up a Puppy Play Date</a>
-        <a href="/api/puppydates/search/today" class="button large hollow" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Browse Puppy Play Dates</a>
-        <a href="/api/puppydates/search/nexttwodays" class= "button large" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: white;" >Browse Puppy Play Dates for the next two days</a>
-        <a href="dogsignup.handlebars" class="button large hollow" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;" >Create a Dog Profile</a>
-      </div>
-    </div>
+<div class="callout large">
+  <div class="row column text-center">
+    <h1>Welcome, {{email}}!</h1>
+    <p class="lead">What would you like to do today?</p>
+    <a href="/api/puppydates/search/list" class="button btn-danger large hollow"
+      style="text-decoration: none; font-family: 'Times New Roman', Times, serif; background-color: #b67162, color: black;">Checkout
+      Open Dates Available</a>
+    <a href="/api/owners/listform" class="button large"
+      style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: white;">Set up a Puppy Play
+      Date</a>
+    <a href="/api/puppydates/search/today" class="button large hollow"
+      style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;">Browse Puppy Play
+      Dates</a>
+    <a href="/api/puppydates/search/nexttwodays" class="button large"
+      style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: white;">Browse Puppy Play Dates
+      for the next two days</a>
+    <a href="/api/dogs/profile/add" class="button large hollow"
+      style="text-decoration: none; font-family: 'Times New Roman', Times, serif; color: black;">Create a Dog
+      Profile</a>
+  </div>
+</div>
 
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-  {{!-- </body>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script>
+  $(document).foundation();
+</script>
+{{!-- </body>
 </html> --}}
-
-
-

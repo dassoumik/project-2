@@ -1,17 +1,17 @@
 <div class="container">
-<h1>Play Dates Available Today</h1>
-{{#each date_data as |dates|}}
-<div class="row">
-    <div class="col-md-3">
-        <div>
-           {{dates.time}} 
+    <h1>Play Dates Available Today</h1>
+    {{#each date_data as |dates|}}
+    <div class="row">
+        <div class="col-md-3">
+            <div>
+                {{dates.time}}
+            </div>
         </div>
-    </div>
-    <div class="col-md-3">
-        {{dates.location}}
-    </div>
-    <div class="col-md-3">
-        <a class=`btn button btn-primary border rounded-lg' href='/api/owners/${{{dates.participant1_id}}}`>
+        <div class="col-md-3">
+            {{dates.location}}
+        </div>
+        <div class="col-md-3">
+            <a class=`btn button btn-primary border rounded-lg' href='/api/owners/${{{dates.participant1_id}}}`>
         Check Participant</a>
     </div>
     <div class="col-md-3">

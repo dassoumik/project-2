@@ -1,5 +1,12 @@
 const router = require("express").Router();
-const { Project, User, Owner } = require("../models");
+// const {
+//   noExtendLeft
+// } = require("sequelize/types/lib/operators");
+const {
+  Project,
+  User,
+  Owner
+} = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -17,9 +24,13 @@ router.get("/profile", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
+      attributes: {
+        exclude: ["password"]
+      },
     });
-    const user = userData.get({ plain: true });
+    const user = userData.get({
+      plain: true
+    });
     res.render("profile", {
       ...user,
       logged_in: req.session.logged_in,
@@ -29,22 +40,23 @@ router.get("/profile", withAuth, async (req, res) => {
   }
 });
 
-router.get("/search/:zip",  async (req, res) => {
-  console.log(req.params.zip);
-  const nearByUsers = await Owner.findAll({where: {zip: req.params.zip}}, {include: {model: 'user', as: 'owner'}});
-  const users = nearByUsers.map((user) => user.get({ plain: true }));
-  if (nearByUsers)
-  {
+router.get("/search/:zip", async (req, res) => {
+  const nearByUsers = await Owner.findAll({
+    where: {
+      zip: req.params.zip
+    }
+  }, {
+    include: {
+      model: 'user',
+      as: 'owner'
+    }
+  });
+  const users = nearByUsers.map((user) => user.get({
+    plain: true
+  }));
+  if (nearByUsers) {
     res.status(200).json(users);
   }
-  // try {
-  //   res.render("homepage", {
-  //     user: users,
-  //     logged_in: req.session.logged_in,
-    // });
-  // } catch (err) {
-    // res.status(500).json(err);
-  // }
 });
 
 router.get("/login", (req, res) => {
@@ -55,6 +67,7 @@ router.get("/login", (req, res) => {
   }
 
   res.render("login");
+  // next();
 });
 
 module.exports = router;

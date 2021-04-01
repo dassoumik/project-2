@@ -1,28 +1,50 @@
 const router = require('express').Router();
 const session = require('express-session');
-const { User, Owner, Dog, DateList } = require('../../models');
-const { Op } = require('sequelize');
+const {
+  User,
+  Owner,
+  Dog,
+  DateList
+} = require('../../models');
+const {
+  Op
+} = require('sequelize');
 const withAuth = require('../../utils/auth');
 
 
-router.post('/',  async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const userData = await Owner.create(req.body);
     res.status(200).json(userData);
-    
+
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.post('/list',  async (req, res) => {
+router.post('/list', async (req, res) => {
   console.log('in post list');
   console.log(req.body);
   try {
-    const ownerId = await Owner.findOne({where: [{user_id: req.body.userID}]}, {attributes: {include: ['id']}});
+    const ownerId = await Owner.findOne({
+      where: [{
+        user_id: req.body.userID
+      }]
+    }, {
+      attributes: {
+        include: ['id']
+      }
+    });
     console.log(ownerId);
-    const dogId = await Dog.findOne({where: {[Op.and]: [{owner_id: ownerId.dataValues.id}, {name: req.body.name}]}});
-      // , {attributes: {include: ['owner_id']}});
+    const dogId = await Dog.findOne({
+      where: {
+        [Op.and]: [{
+          owner_id: ownerId.dataValues.id
+        }, {
+          name: req.body.name
+        }]
+      }
+    });
     console.log(dogId);
     const listInput = {};
     listInput.participant1_id = ownerId.dataValues.id;
@@ -35,42 +57,41 @@ router.post('/list',  async (req, res) => {
     const userData = await DateList.create(listInput);
     console.log(userData);
     res.status(200).json(userData);
-    
+
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.get('/listform',  async (req, res) => {
+router.get('/listform', async (req, res) => {
   try {
-  await res.render('DateListForm', {user_id: req.session.user_id,
-                                  logged_in: req.session.logged_in});
-} catch (err) {
-  res.status(400).json(err);
-}
+    await res.render('DateListForm', {
+      user_id: req.session.user_id,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
-router.post('/profile/add',  async (req, res) => {
-  console.log('in profile add');
-  console.log(req.body);
+router.post('/profile/add', async (req, res) => {
   try {
     const userData = await Owner.create(req.body);
-    console.log(userData);
     res.status(200).json(userData);
-    
+
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.get('/profile/add',  async (req, res) => {
-  console.log('in profile add');
-  console.log(req.body);
+router.get('/profile/add', async (req, res) => {
   try {
-    
-    await res.render('profileupdate', {user_id: req.session.user_id,
-                                 logged_in: req.session.logged_in});
-    
+
+    await res.render('profileupdate', {
+      user_id: req.session.user_id,
+      logged_in: req.session.logged_in
+    });
+
   } catch (err) {
     res.status(400).json(err);
   }
@@ -78,26 +99,25 @@ router.get('/profile/add',  async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const userData = await Owner.findByPk(req.params.id, { include: Dog });
-      // include: [{ model: 'user', as: 'userOwner' }],
-     // include: [{ all: true, nested: true }],
-    //});
-    // console.log(JSON.stringify(userData, null, 2));
-
+    const userData = await Owner.findByPk(req.params.id, {
+      include: Dog
+    });
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect owner, please try again' });
+        .json({
+          message: 'Incorrect owner, please try again'
+        });
       return;
     } else {
-      //   const ownerData = userData.map((owner) =>
-      //  owner.get({ plain: true }));
-      const simpleOwnerData = userData.get({ plain: true });
-        res
-          .render('owner', {
-              simpleOwnerData,
-              logged_in: req.session.logged_in,
-          });
+      const simpleOwnerData = userData.get({
+        plain: true
+      });
+      res
+        .render('owner', {
+          simpleOwnerData,
+          logged_in: req.session.logged_in,
+        });
     }
 
   } catch (err) {
