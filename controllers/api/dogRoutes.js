@@ -9,7 +9,7 @@ const {
 const withAuth = require('../../utils/auth');
 
 
-router.post('/create/new/profile', async (req, res) => {
+router.post('/create/new/profile', withAuth, async (req, res) => {
   const dogInput = {};
   try {
     const ownerId = await Owner.findOne({
@@ -47,7 +47,7 @@ router.post('/create/new/profile', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     const dogData = await Dog.findByPk(req.params.id, {
       include: Owner
@@ -75,7 +75,7 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get('/profile/add', async (req, res) => {
+router.get('/profile/add', withAuth, async (req, res) => {
   try {
     res
       .render('dogprofileupdate', {
