@@ -18,16 +18,16 @@
             </tr>
             {{#each simpleData as |date|}}
             <tr style="background-color: #e2bcb7;">
-                <td class="sel-date" data-date={{date.date}}>{{date.date}}</td>
-                <td class="sel-time" data-time={{date.time}}>{{date.time}}</td>
-                <td class="sel-location" data-location={{date.location}}>{{date.location}}</td>
-                <td class="sel-zip" data-zip={{date.zip}}>{{date.zip}}</td>
-                <td class="sel-owner" data-owner-id={{date.participant1_id}}><a class='btn button btn-primary border rounded-lg' href='/api/owners/{{date.participant1_id}}'>
+                <td class="sel-date{{date.id}}" data-date={{date.date}}>{{date.date}}</td>
+                <td class="sel-time{{date.id}}" data-time={{date.time}}>{{date.time}}</td>
+                <td class="sel-location{{date.id}}" data-location={{date.location}}>{{date.location}}</td>
+                <td class="sel-zip{{date.id}}" data-zip={{date.zip}}>{{date.zip}}</td>
+                <td class="sel-owner{{date.id}}" data-owner-id={{date.participant1_id}}><a class='btn button btn-primary border rounded-lg' href='/api/owners/{{date.participant1_id}}'>
                         Check Participant</a></td>
-                <td class="sel-dog" data-dog-id={{date.dog1_id}}><a class='btn button btn-primary border rounded-lg' href='/api/dogs/{{date.dog1_id}}'>
+                <td class="sel-dog{{date.id}}" data-dog-id={{date.dog1_id}}><a class='btn button btn-primary border rounded-lg' href='/api/dogs/{{date.dog1_id}}'>
                         Check Dog</a></td>
-                <td><input class='dog2-name' type='text' placeholder='your dog name' data-list-id={{date.id}}></td>
-                <td><button class='btn button btn-danger border rounded-lg set-date'>
+                <td><input class='dog2-name{{date.id}}' type='text' placeholder='your dog name' data-list-id={{date.id}}></td>
+                <td><button class='btn button btn-danger border rounded-lg set-date' data-set-id={{date.id}}>
                         Set Date</button></td>
             </tr>
             {{/each}}
