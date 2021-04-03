@@ -20,7 +20,7 @@ var {
 
 
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   const ownerDateData = {};
   try {
     const dateData = await PuppyDate.create(req.body);
@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
 });
 
 
-router.post('/setdate', async (req, res) => {
+router.post('/setdate', withAuth, async (req, res) => {
   const dateInputData = {};
   const ownerDateData = {};
   const dogDateData = {};
@@ -97,7 +97,7 @@ router.post('/setdate', async (req, res) => {
 
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     const dateData = await PuppyDate.findAll({
       where: {
@@ -163,11 +163,11 @@ router.get('/zip/:id', async (req, res) => {
         });
       return;
     } else {
-      res
-        .render('datebyzip', {
-          date_data: dateData.datavalues,
-          logged_in: req.session.logged_in,
-        });
+      res.status(200).json(dateData.dataValues);
+        // .render('datebyzip', {
+        //   date_data: dateData.datavalues,
+        //   logged_in: req.session.logged_in,
+        // });
     }
 
   } catch (err) {
@@ -176,7 +176,7 @@ router.get('/zip/:id', async (req, res) => {
 });
 
 
-router.get('/search/dates/zip/:id/:time', async (req, res) => {
+router.get('/search/dates/zip/:id/:time', withAuth, async (req, res) => {
   try {
     const dateData = await PuppyDate.findAll({
       where: {

@@ -1,37 +1,40 @@
-<h1>In dog profile</h1>
-<div class="border rounded-lg" style="width: 10%"><img src='{{simpleDogData.image}} alt=' {{simpleDogData.name}}
-        image'></a></div>
-<div class="container bg-secondary m-5 border text-white rounded-lg" style="width: 50%">
-    <div class="row">
-        <div class="col-md-3">
-            Name
+<div class="container" style="margin-left: 20%;">
+    <h3>In dog profile</h3>
+    <div class="m-5" style="width: 10%"><img class="border rounded-lg" style="border-radius: 20px 10px 3px 5px;"
+            src={{simpleDogData.image}} alt={{simpleDogData.name}}></div>
+    <div class="row m-5 p-5 border rounded-lg"
+        style="width: 50%; background-color: #e2bcb7; border-radius: 10px 60px 5px 30px;">
+        <div class="row">
+            <div class="col-md-3">
+                Name
+            </div>
+            <div class="col-md-3">
+                {{simpleDogData.name}}
+            </div>
         </div>
-        <div class="col-md-3">
-            {{simpleDogData.name}}
+        <div class="row">
+            <div class="col-md-3">
+                Breed
+            </div>
+            <div class="col-md-3">
+                {{simpleDogData.breed}}
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            Breed
+        <div class="row">
+            <div class="col-md-3">
+                Age
+            </div>
+            <div class="col-md-3">
+                {{simpleDogData.age}}
+            </div>
         </div>
-        <div class="col-md-3">
-            {{simpleDogData.breed}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            Age
-        </div>
-        <div class="col-md-3">
-            {{simpleDogData.age}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            Sex
-        </div>
-        <div class="col-md-3">
-            {{simpleDogData.gender}}
+        <div class="row">
+            <div class="col-md-3">
+                Sex
+            </div>
+            <div class="col-md-3">
+                {{simpleDogData.gender}}
+            </div>
         </div>
     </div>
 </div>
