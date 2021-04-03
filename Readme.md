@@ -1,20 +1,20 @@
 # PlayDate
 Together we built an online application where a user can go in and set up puppy play dates. 
 
+## ![](https://img.shields.io/badge/license-MIT-yellowgreen) <br>
 
 ## Contact information and Deployment
-Created by: Soumik Das, Aubrey Bennett, Greyson Mainor, Tori Sanford
-Date: 04/01/2021
-Contact: 
-Greyson- gbmainor98@outlook.com
-Tori- Tori.danielle.clark91@gmail.com
-Aubrey- 27aubreyb@gmail.com
-Soumik-contact.soumikdas@gmail.com
+  Created by: Soumik Das, Aubrey Bennett, Greyson Mainor, Tori Sanford <br>
+  Date: 04/01/2021 <br>
+  Contact: <br>
+ - Greyson- gbmainor98@outlook.com
+ - Tori- Tori.danielle.clark91@gmail.com
+ - Aubrey- 27aubreyb@gmail.com
+ - Soumik- contact.soumikdas@gmail.com
 
-Link to deployed project:  https://app-puppy-play.herokuapp.com/
-Screen shot of completed assignment: ![Final Screen shot](./assets/screenshot.png)
-Link to Visual Aid: https://www.canva.com/design/DAEad68SKoA/share/preview?token=DEguqKpyeYTSeoA50K5Zfg&role=EDITOR&utm_content=DAEad68SKoA&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton
-Link to google doc with project details - outline - etc: https://docs.google.com/document/d/1nIH4jkA88nKK9exwfmxQ4BVIWtFiYMVewWIzfGz4z3c/edit?usp=sharing
+Link to deployed project:  https://app-puppy-play.herokuapp.com/ <br>
+Screen shot of completed assignment: ![Final Screen shot](./assets/screenshot.png) <br>
+Link to Visual Aid: [Project Presentation](https://www.canva.com/design/DAEad68SKoA/share/preview?token=DEguqKpyeYTSeoA50K5Zfg&role=EDITOR&utm_content=DAEad68SKoA&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton) <br>
 
 
 ## About this Project: 
@@ -23,7 +23,7 @@ One stop shop for users to find their playdates, locally. Users can set up or br
 
 ## What we learned from this project: 
 - Greyson- I learned how to use embed maps in an html as well as shortcuts for on clicks when handling basic stuff in the html.
-- Soumik - How to update images, dates, and pull them from the database. 
+- Soumik - Learned about the overall MVC concepts.  
 - Aubrey - I learned about how the authentication process works.
 - Tori - Learned how to better use handlebars and deploy to heroku. 
 
@@ -59,3 +59,9 @@ API For Park look up
 A user interface that allows them to place in their profile (human and dog) DB will retain that information. 
 Look up of information and input of information that will be the post and pull. 
 All locations must have an address associated to them. 
+
+## License <br>
+This app follow **MIT** licensing rules. Please check below link for more details.
+ <br> <br>
+https://choosealicense.com/licenses/mit/ <br>
+  <br>
